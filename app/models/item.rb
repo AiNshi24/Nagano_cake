@@ -1,4 +1,4 @@
 class Item < ApplicationRecord
   belong_to :genre
-  has_many :add, dependent: :destroy
+  has_many :cart_items, dependent: :destroy
 end
