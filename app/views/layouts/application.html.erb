@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>NaganoCake</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,24 +11,55 @@
   </head>
 
   <body>
-    
+
     <header>
       <div class="container">
         <%= link_to root_path, class:"navbar-brand" do %>
-        <span>ながのCAKE</span>
+          ながのCAKE
         <% end %>
         <div class="right-header">
           <% if customer_signed_in? %>
-          <% end %>
+            <%= link_to customers_mypage_path, class:"btn btn-block" do %>
+             マイページ
+            <% end %>
+            <%= link_to items_path, class:"btn btn-block" do %>
+              商品一覧
+            <% end %>
+            <%= link_to cart_items_path, class:"btn btn-block" do %>
+              カート
+            <% end %>
+            <%= link_to destroy_customer_session_path, class:"btn btn-block", method: :delete do %>
+              ログアウト
+            <% end %>
+
           <% elsif admin_signed_in? %>
-          <% end %>
+            <%= link_to admin_items_path, class:"btn btn-block" do %>
+              商品一覧
+            <% end %>
+            <%= link_to admin_customers_path, class:"btn btn-block" do %>
+              会員一覧
+            <% end %>
+            <%= link_to admin_genres_path, class:"btn btn-block" do %>
+              ジャンル一覧
+            <% end %>
+            <%= link_to destroy_admin_session_path, class:"btn btn-block", method: :delete do %>
+              ログアウト
+            <% end %>
+
           <% else %>
-           <% link_to about_path, class="btn btn-block" do %>
-             About
-           <% end %>
-           <% link_to items_path, class="btn btn-block" do %>
-             商品一覧
-           <% end %>
+            <%= link_to about_path, class:"btn btn-block" do %>
+              About
+            <% end %>
+            <%= link_to items_path, class:"btn btn-block" do %>
+              商品一覧
+            <% end %>
+            <%= link_to new_customer_registration_path, class:"btn btn-block" do %>
+              新規登録
+            <% end %>
+            <%= link_to new_customer_session_path, class:"btn btn-block" do %>
+              ログイン
+            <% end %>
+
           <% end %>
         </div>
       </div>
