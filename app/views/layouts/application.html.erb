@@ -6,11 +6,33 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    
+    <header>
+      <div class="container">
+        <%= link_to root_path, class:"navbar-brand" do %>
+        <span>ながのCAKE</span>
+        <% end %>
+        <div class="right-header">
+          <% if customer_signed_in? %>
+          <% end %>
+          <% elsif admin_signed_in? %>
+          <% end %>
+          <% else %>
+           <% link_to about_path, class="btn btn-block" do %>
+             About
+           <% end %>
+           <% link_to items_path, class="btn btn-block" do %>
+             商品一覧
+           <% end %>
+          <% end %>
+        </div>
+      </div>
+    </header>
     <%= yield %>
   </body>
 </html>
