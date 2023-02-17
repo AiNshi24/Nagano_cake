@@ -19,6 +19,7 @@ ul li{
 }
 
 .title h3{
+  margin-top: 20px;
   display: inline-block;
   padding: 3px 12px;
   background-color: #eeeeee;
@@ -39,3 +40,19 @@ ul li{
 .field{
   margin: 20px 0;
 }
+
+tr{
+  
+  white-space: nowrap;
+}
+
+th{
+  font-weight: normal;
+  padding: 10px;
+  
+}
+
+td{
+  padding: 5px;
+}
+
