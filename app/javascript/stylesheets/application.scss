@@ -38,7 +38,7 @@ ul li{
 }
 
 .field{
-  margin: 20px 0;
+  margin: 10px 0;
 }
 
 footer{
@@ -56,4 +56,15 @@ margin: auto;
 }
 .form-box{
   width: 300px;
+}
+
+.field  > label{
+  width: 110px;
+  margin-right: 30px;
+}
+.text{
+  width: 300px;
+}
+.btn{
+  width: 150px;
 }
