@@ -2,13 +2,13 @@
 
 .navbar-brand{
   border: 2px solid #c0c0c0;
-  
+
 }
 
 ul{
   display: flex;
   flex: row-reverse;
-  
+
 }
 
 ul li{
@@ -41,18 +41,19 @@ ul li{
   margin: 20px 0;
 }
 
-tr{
-  
-  white-space: nowrap;
-}
+footer{
+  background-color: #c0c0c0;
 
-th{
-  font-weight: normal;
-  padding: 10px;
-  
 }
-
-td{
-  padding: 5px;
+.form-group > label{
+  margin-right: 30px;
+  width: 120px;
 }
-
+.center{
+  top: 0;
+bottom: 0;
+margin: auto;
+}
+.form-box{
+  width: 300px;
+}
