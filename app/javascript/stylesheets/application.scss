@@ -27,10 +27,13 @@ ul li{
   border-radius: 2px;
 }
 
+footer{
+  background-color: #c0c0c0;
+
+}
 .actions{
   margin: 40px 0;
 }
-
 .login{
   display: flex;
   justify-content: center;
@@ -40,11 +43,6 @@ ul li{
 
 .field{
   margin: 10px 0;
-}
-
-footer{
-  background-color: #c0c0c0;
-
 }
 .form-group > label{
   margin-right: 30px;
@@ -93,4 +91,8 @@ tr{
 .page{
   margin:0 auto;
   width: 10px;
+}
+.more > a{
+  text-decoration: underline;
+  float: right;
 }
