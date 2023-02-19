@@ -1,6 +1,7 @@
 <div class="container">
   <div class="title">
     <h3>商品一覧</h3>
+    <%= link_to "＋", new_admin_item_path, class:"btn btn-light rounded-circle p-1 shadow mt-4", style:"width:2rem;height:2rem;" %>
   </div>
   <div class="row">
     <div class="col-sm-12 col-md-10 col-lg-8 px-5 px-sm-0 mx-auto">
@@ -36,7 +37,9 @@
           <% end %>
         </tbody>
       </table>
-
+      <div class="page">
+        <%= paginate @items%>
+      </div>
     </div>
   </div>
 </div>
