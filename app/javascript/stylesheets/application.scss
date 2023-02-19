@@ -20,6 +20,7 @@ ul li{
 
 .title h3{
   margin-top: 20px;
+  margin-bottom: 30px;
   display: inline-block;
   padding: 3px 12px;
   background-color: #eeeeee;
@@ -67,4 +68,22 @@ margin: auto;
 }
 .btn{
   width: 150px;
+}
+
+.item-show > label{
+  width: 120px;
+}
+.prices{
+  top: 0;
+  bottom: 0;
+}
+
+thead{
+  background-color: #eeeeee;
+}
+tr{
+  height:40px;
+}
+.item-link > a{
+  text-decoration: underline;
 }
