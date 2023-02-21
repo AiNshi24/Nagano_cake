@@ -21,6 +21,7 @@ ul li{
 .title h3{
   margin-top: 20px;
   margin-bottom: 30px;
+  margin-left: 100px;
   display: inline-block;
   padding: 3px 12px;
   background-color: #eeeeee;
@@ -118,4 +119,43 @@ h5{
 }
 .about{
   text-align: center;
+}
+.login-title{
+  margin-left: 200px;
+  margin-bottom: 20px;
+  display: inline-block;
+  // padding: 3px 12px;
+  background-color: #eeeeee;
+  border-radius: 2px;
+}
+.this{
+  text-decoration: underline;
+}
+.last{
+  margin-left: 300px;
+  margin-bottom: 100px;
+}
+.fields > label{
+  width: 200px;
+  margin-right: 30px;
+}
+.names{
+  height: 30px;
+
+}
+.subtitle{
+  width: 160px;
+}
+.last-name{
+  width: 70px;
+}
+.address-field{
+  width: 460px;
+}
+.green{
+  margin-left: 240px;
+}
+.lasts{
+  margin-left: 200px;
+  margin-bottom: 100px;
 }

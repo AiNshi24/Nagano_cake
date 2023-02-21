@@ -1,29 +1,74 @@
-<h2>Sign up</h2>
-
-<%= form_with model: @customer, url: customer_registration_path do |f| %>
-  <%= render "publics/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="container">
+  <div class="title">
+    <h3>新規会員登録</h3>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
+<%= form_with model: @customer, url: customer_registration_path do |f| %>
+  <%#= render "public/shared/error_messages", resource: resource %>
+
+  <div class="fields d-flex">
+    <p class="subtitle">名前</p>
+    <%#= f.label :last_name, "(姓)" %>
+    <p class="last-name">（姓）</p>
+    <%= f.text_field :last_name, class:"names mr-4 ml-1", placeholder: "令和" %>
+    <%#= f.label :first_name, "(名)" %>
+    <p>（名）</p>
+    <%= f.text_field :first_name, class:"names ml-3", placeholder: "道子" %>
+  </div>
+  
+  <div class="fields d-flex">
+    <p class="subtitle">フリガナ</p>
+    <%#= f.label :last_name_kana, "(セイ)" %>
+    <p class="last-name">（セイ）</p>
+    <%= f.text_field :last_name_kana, class:"names mr-4 ml-1", placeholder: "レイワ" %>
+    <%#= f.label :first_name_kana, "(メイ)" %>
+    <p>（メイ）</p>
+    <%= f.text_field :first_name_kana, class:"names", placeholder: "ミチコ" %>
+  </div>
+
+  <div class="fields">
+    <%= f.label :email, "メールアドレス" %>
+    <%= f.email_field :email, autofocus: true, placeholder: "sample@example.com", autocomplete: "email" %>
+  </div>
+  
+  <div class="fields">
+    <%= f.label :postal_code, "郵便番号（ハイフンなし）" %>
+    <%= f.text_field :postal_code, placeholder: "000000" %>
+  </div>
+  
+  <div class="fields">
+    <%= f.label :address, "住所" %>
+    <%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0", class:"address-field" %>
+  </div>
+  
+  <div class="fields">
+    <%= f.label :telephone_number, "電話番号（ハイフンなし）" %>
+    <%= f.text_field :telephone_number, placeholder: "0000000000" %>
+  </div>
+
+  <div class="fields">
+    <%= f.label :password, "パスワード（６文字以上）" %>
+    <%# if @minimum_password_length %>
+    <%#= @minimum_password_length %> 
+    <%# end %>
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
+  <div class="fields">
+    <%= f.label :password_confirmation, "パスワード（確認用）" %>
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "新規登録", class:"btn btn-success d-block green" %>
   </div>
 <% end %>
+  <div class="title">
+    <h3>既に登録済みの方</h3>
+  </div>
+  <div class="lasts">
+    <%= link_to "こちら", new_customer_session_path, class:"this mr-3" %>からログインしてください。
+  </div>
+<%#= render "public/shared/links" %>
 
-<%= render "public/shared/links" %>
+</div>
