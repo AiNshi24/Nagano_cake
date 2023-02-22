@@ -11,7 +11,7 @@ ul{
 
 }
 
-ul li{
+.nav-item {
   list-style: none;
   border: 2px solid #eeeeee;
   border-radius: 5px;
@@ -158,4 +158,24 @@ h5{
 .lasts{
   margin-left: 200px;
   margin-bottom: 100px;
+}
+
+.first{
+  margin-top: 20px;
+  margin-bottom: 30px;
+  margin-left: 100px;
+}
+.mains{
+  width: 900px;
+}
+.introduce{
+  float: left;
+}
+.centers{
+}
+.item-name{
+  font-size: 25px;
+}
+.item-price{
+  font-size: 20px;
 }

@@ -12,4 +12,6 @@ class Item < ApplicationRecord
     image.variant(resize_to_limit: [width, height]).processed
   end
   
+  # max_paginates_per 8
+  
 end

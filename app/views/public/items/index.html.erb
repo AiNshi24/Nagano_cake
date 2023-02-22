@@ -1,2 +1,26 @@
-<h1>Items#index</h1>
-<p>Find me in app/views/items/index.html.erb</p>
+<div class="container">
+  <div class="first d-flex">
+    <h3 class="font-weight-bold">商品一覧</h3>
+    <p class="mt-2">(全<%= @items.count %>件）</p>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-10 col-lg-8 px-5 px-sm-0 mx-auto">
+      
+      <div class="mains d-flex flex-wrap">
+        <% @items.each do |item| %>
+        <div class= "mr-3">
+          <%= link_to item_path(item.id) do %>
+            <%= image_tag item.get_image(200,300) %><br>
+          <% end %>
+          <%= item.name %><br>
+          ¥<%= item.price %>
+        </div>
+        <% end %>
+      </div>
+      <div class="page mt-3">
+        <%= paginate @items %>
+      </div>
+      
+    </div>
+  </div>
+</div>

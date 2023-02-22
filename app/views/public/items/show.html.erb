@@ -1,2 +1,22 @@
-<h1>Items#show</h1>
-<p>Find me in app/views/items/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="item-image mt-5 mb-5 col-5">
+      <%= image_tag @item.get_image(300,400) %>
+    </div>
+    <div class="introduce col-7">
+      <h6 class=" item-name font-weight-bold mt-5"><%= @item.name %></h6>
+      
+      <p class="mb-5"><%= @item.introduction %></p>
+      <div class="centers d-flex">
+      <h6 class="font-weight-bold item-price">¥<%= @item.with_tax_price %></h6>
+      （税込）
+        <% if @item.is_active %>
+          <div class="text-success font-weight-bold">販売中</div>
+        <% else %>
+          <div class="text-secondary">販売停止中</div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+

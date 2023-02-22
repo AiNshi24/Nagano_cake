@@ -4,7 +4,7 @@
   </div>
 
 <%= form_with model: @customer, url: customer_registration_path do |f| %>
-  <%#= render "public/shared/error_messages", resource: resource %>
+  <%= render "public/shared/error_messages", resource: resource %>
 
   <div class="fields d-flex">
     <p class="subtitle">名前</p>
