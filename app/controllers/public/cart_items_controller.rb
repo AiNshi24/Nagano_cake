@@ -1,4 +1,4 @@
-class CartItemsController < ApplicationController
+class Public::CartItemsController < ApplicationController
   def index
   end
 
@@ -12,7 +12,7 @@ class CartItemsController < ApplicationController
   end
 
   def create
-  
+    @item = Item.find(cart_item_params[:item_id])
   end
   
   private
