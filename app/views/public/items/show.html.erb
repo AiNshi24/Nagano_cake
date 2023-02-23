@@ -17,8 +17,8 @@
         <% end %>
       </div>
       <div class="d-inline-block mt-5">
-        <%= form_with model: @cart_items,url: cart_items_path do |f| %>
-          <%= f.hidden_field :cart_item, :value => "amount" %>
+        <%= form_with model: @cart_item, url: cart_items_path do |f| %>
+          <%= f.hidden_field :item_id, :value => @item.id %>
           <%= f.select :amount, *[1..3], {prompt: "個数選択"} %>
       </div>
         <div class="cart-btm d-inline-block">
