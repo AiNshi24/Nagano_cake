@@ -23,9 +23,10 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :show]
   resources :registrations, only: [:new, :create]
   resources :sessions, only: [:new, :create, :destroy]
-  delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
+  delete 'cart_items/destroy_all'
   resources :cart_items, only: [:index, :update, :destroy, :create]
   resources :orders, only: [:new, :confirm, :complete, :create, :index, :show]
+  post 'orders/confirm'
   resources :addresses, only: [:index, :edit, :create, :update, :destroy]
   get '/about' => 'homes#about'
   get 'customers/mypage' => 'customers#show'
