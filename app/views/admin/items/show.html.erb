@@ -19,8 +19,8 @@
       <div class="item-show d-flex">
           <label for="price">税込価格<br>(税抜価格)</label>
           <div class="center mx-0">
-            <%= @item.with_tax_price %>
-            (<%= @item.price %>)　円
+            <%= @item.with_tax_price.to_s(:delimited) %>
+            (<%= @item.price.to_s(:delimited) %>)　円
           </div>
       </div>
       <div class="item-show d-flex">

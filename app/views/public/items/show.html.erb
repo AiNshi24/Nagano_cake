@@ -8,7 +8,7 @@
       
       <p class="mb-5"><%= @item.introduction %></p>
       <div class="centers d-flex mb-3">
-      <h6 class="font-weight-bold item-price">¥<%= @item.with_tax_price %></h6>
+      <h6 class="font-weight-bold item-price">¥<%= @item.with_tax_price.to_s(:delimited) %></h6>
       （税込）
         <% if @item.is_active %>
           <div class="text-success font-weight-bold">販売中</div>

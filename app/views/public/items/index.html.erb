@@ -13,7 +13,7 @@
             <%= image_tag item.get_image(200,300) %><br>
           <% end %>
           <%= item.name %><br>
-          ¥<%= item.price %>
+          ¥<%= item.price.to_s(:delimited) %>
         </div>
         <% end %>
       </div>
