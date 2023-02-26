@@ -22,10 +22,10 @@
           <!--  <span class="navbar-toggler-icon"></span>-->
           <!--</button>-->
           <!--<div class="collapse navbar-collapse" id="navbarNavDropdown">-->
-            <ul class"nav-bar-nav ml-auto">
-            <% if customer_signed_in? %>
-            <p class="mr-5">ようこそ、<%= current_customer.last_name %>さん！</p>
             
+            <% if customer_signed_in? %>
+            <p class="mr-3 mt-3">ようこそ、<%= current_customer.last_name %>さん！</p>
+            <ul class"nav-bar-nav ml-auto">
             <li class="nav-item">
               <%= link_to "マイページ", customers_mypage_path, class:'nav-link text-dark' %>
             </li>
@@ -66,9 +66,15 @@
             <li class="nav-item">
               <%= link_to "ログイン", new_customer_session_path, class:'nav-link text-dark' %>
             </li>
-  
-            <% end %>
             </ul>
+            <% end %>
+            
+            <div class="mt-2">
+            <form id="forms" method="get">
+            <input id="sbox"  id="s" name="s" type="text" placeholder="Search"/>
+            <button type="submit" id="sbtn"><i class="fas fa-search"></i></button>
+            </form>
+            </div>
           </div>
         </div>
       </nav>

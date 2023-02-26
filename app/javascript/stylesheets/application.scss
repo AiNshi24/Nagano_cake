@@ -1,6 +1,36 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
+
+.forms{
+      position:relative;
+      max-width:300px;	
+      margin-bottom:20px;
+}
+.sbox{
+    height:50px;
+    padding:0 10px; 
+    position:absolute; 
+    left:0;
+    top:0; 
+    border-radius:2px;
+    outline:0;
+    background:#eee;	
+}
+.sbtn{
+    height:50px;
+    position:absolute; 
+    // left:255px;/*アイコン左右の位置調整*/
+    top:0;
+    background:none;
+    color:#666;
+    border:none;
+    font-size:20px;/*アイコンサイズ*/
+}
+.sbtn:hover{
+    color:#7fbfff;
+}
+
 .navbar-brand{
   border: 2px solid #c0c0c0;
 
