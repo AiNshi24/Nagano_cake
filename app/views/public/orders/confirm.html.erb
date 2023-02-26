@@ -1,2 +1,76 @@
-<h1>Orders#confirm</h1>
-<p>Find me in app/views/orders/confirm.html.erb</p>
+<div class="container">
+  <%= form_with model: @order,url: orders_path do |f| %>
+  <div class="title d-inline-block">
+    <h3>注文情報確認</h3>
+  </div>
+  <div class="row">
+    <div class="col-8">
+      <table class="table table-bordered d-inline-block">
+        <thead>
+          <tr>
+            <th>商品名</th>
+            <th>単価（税込）</th>
+            <th>数量</th>
+            <th>小計</th>
+          </tr>
+        </thead>
+         <tbody>
+
+          <% @orders.each do |order| %>
+          <tr>
+            <td class="order_image">
+              <%= image_tag order.item.get_image(60,60) %>
+              <%= order.item.name %>
+            </td>
+            <td class="order_td"><%= order.item.with_tax_price.to_s(:delimited) %></td>
+            <td class="order_td">
+              <%= order.amount %>
+            </td>
+            <td class="order_td"><%= order.subtotal.to_s(:delimited) %></td>
+            <% @total += order.subtotal %>
+          </tr>
+
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+
+    <div class="">
+      <table class="table table-bordered d-inline-block">
+        <tr>
+          <th class="order_price">送料</th>
+          <td><%= @order.shipping_cost %></td>
+          <%= f.hidden_field :shipping_cost, :value => 800 %>
+        </tr>
+        <tr class="">
+          <th class="order_price">商品合計</th>
+          <td><%= @total.to_s(:delimited) %></td>
+        </tr>
+        <tr class="">
+          <th class="order_price">請求金額</th>
+          <td><%= (@order.shipping_cost + @total).to_s(:delimited) %></td>
+          <%= f.hidden_field :total_payment, :value => (@order.shipping_cost + @total).to_s(:delimited) %>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="d-flex mb-4">
+    <h4 class="mr-3 font-weight-bold">支払方法</h4>
+    <%= Order.payment_methods_i18n[@order.payment_method] %>
+    <%= f.hidden_field :payment_method, :value => @order.payment_method %>
+  </div>
+  <div class="d-flex">
+    <h4 class="mr-3 font-weight-bold">お届け先</h4>
+    〒<%= @order.postal_code %>
+    <%= @order.address %><br>
+    <%= @order.name %>
+    <%= f.hidden_field :postal_code, :value => @order.postal_code %>
+    <%= f.hidden_field :address, :value => @order.address %>
+    <%= f.hidden_field :name, :value => @order.name %>
+  </div>
+  <div>
+    <%= f.submit "注文を確定する", class:"btn btn-success d-block mx-auto mb-5 mt-5" %>
+  </div>
+  <% end %>
+</div>
