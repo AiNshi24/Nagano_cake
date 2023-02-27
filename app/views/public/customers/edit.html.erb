@@ -1,2 +1,37 @@
-<h1>Customers#edit</h1>
-<p>Find me in app/views/customers/edit.html.erb</p>
+<div class="container">
+  <div class="title">
+    <h3>会員情報編集</h3>
+  </div>
+  <%= form_with model: @customer, url: customers_information_path do |f| %>
+  <div class="d-flex">
+    <p class="edit">氏名</p>
+    <%= f.text_field :last_name, class:"mr-4 ml-1 names", placeholder: "令和" %>
+    <%= f.text_field :first_name, class:"names", placeholder: "道子" %>
+  </div>
+  <div class="d-flex">
+    <p class="edit">フリガナ</p>
+    <%= f.text_field :last_name_kana, class:"mr-4 ml-1 names", placeholder: "レイワ" %>
+    <%= f.text_field :first_name_kana, class:"names", placeholder: "ミチコ" %>
+  </div>
+  <div class="edits">
+    <%= f.label :postal_code, "郵便番号" %>
+    <%= f.text_field :postal_code, placeholder: "000000" %>
+  </div>
+  <div class="edits">
+    <%= f.label :address, "住所" %>
+    <%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0", class:"address-field" %>
+  </div>
+  <div class="edits">
+    <%= f.label :postal_code, "郵便番号" %>
+    <%= f.text_field :postal_code, placeholder: "000000" %>
+  </div>
+  <div class="edits">
+    <%= f.label :email, "メールアドレス" %>
+    <%= f.email_field :email, autofocus: true, placeholder: "sample@example.com", autocomplete: "email" %>
+  </div>
+  <div class="actions">
+    <%= f.submit "編集内容を保存", class:"btn btn-success edit_btn" %>
+    <%= link_to "退会する", unsubscribe_path, class:"btn btn-danger red_btn" %>
+  </div>
+  <% end %>
+</div>
