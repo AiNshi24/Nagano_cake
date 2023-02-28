@@ -31,17 +31,25 @@ class Public::OrdersController < ApplicationController
     @order.status = 0
     @order.save
     @cart_items = current_customer.cart_items
-    @cart_items.each do |oder_detail|
-      @cart_items.destroy_all
+    @cart_items.each do |cart_item|
+      order_detail = OrderDetail.new
+      order_detail.order_id = @order.id
+      order_detail.item_id = cart_item.item_id
+      order_detail.amount = cart_item.amount
+      order_detail.price = Item.find(cart_item.item_id).with_tax_price
+      order_detail.save
     end
+    @cart_items.destroy_all
     redirect_to orders_complete_path
   end
 
   def index
-
+    @orders = current_customer.orders
+    
   end
 
   def show
+
   end
 
   private

@@ -1,4 +1,5 @@
 <div class="container">
+  <%= flash[:notice] %>
   <div class="title">
     <h3>新規会員登録</h3>
   </div>
@@ -15,7 +16,7 @@
     <p>（名）</p>
     <%= f.text_field :first_name, class:"names ml-3", placeholder: "道子" %>
   </div>
-  
+
   <div class="fields d-flex">
     <p class="subtitle">フリガナ</p>
     <%#= f.label :last_name_kana, "(セイ)" %>
@@ -30,17 +31,17 @@
     <%= f.label :email, "メールアドレス" %>
     <%= f.email_field :email, autofocus: true, placeholder: "sample@example.com", autocomplete: "email" %>
   </div>
-  
+
   <div class="fields">
     <%= f.label :postal_code, "郵便番号（ハイフンなし）" %>
     <%= f.text_field :postal_code, placeholder: "000000" %>
   </div>
-  
+
   <div class="fields">
     <%= f.label :address, "住所" %>
     <%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0", class:"address-field" %>
   </div>
-  
+
   <div class="fields">
     <%= f.label :telephone_number, "電話番号（ハイフンなし）" %>
     <%= f.text_field :telephone_number, placeholder: "0000000000" %>
@@ -49,7 +50,7 @@
   <div class="fields">
     <%= f.label :password, "パスワード（６文字以上）" %>
     <%# if @minimum_password_length %>
-    <%#= @minimum_password_length %> 
+    <%#= @minimum_password_length %>
     <%# end %>
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
