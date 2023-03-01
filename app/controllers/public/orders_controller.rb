@@ -7,7 +7,7 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @orders = current_customer.cart_items
     @total = 0
-    @order.shipping_cost = 800
+    @shipping_cost = 800
     if params[:order][:select_address] == "0"
       @order.postal_code = current_customer.postal_code
       @order.address = current_customer.address
@@ -49,7 +49,9 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
-
+    @order = Order.find(params[:id])
+    @shipping_cost = 800
+    @order_details = OrderDetail.all
   end
 
   private
