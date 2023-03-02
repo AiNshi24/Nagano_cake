@@ -1,2 +1,51 @@
-<h1>Admin::Customers#show</h1>
-<p>Find me in app/views/admin/customers/show.html.erb</p>
+<div class="container">
+  <div class="title">
+    <h3>
+      <%= @customer.last_name %>
+      <%= @customer.first_name %>
+      さんの会員詳細
+    </h3>
+  </div>
+  <div class="admin_customer d-flex">
+    <p class="admin_customer_title">会員ID</p>
+    <%= @customer.id %>
+  </div>
+  <div class="admin_customer d-flex">
+    <p class="admin_customer_title">氏名</p>
+    <%= @customer.last_name %>
+    <%= @customer.first_name %>
+  </div>
+  <div class="admin_customer d-flex">
+    <p class="admin_customer_title">フリガナ</p>
+    <%= @customer.last_name_kana %>
+    <%= @customer.first_name_kana %>
+  </div>
+  <div class="admin_customer d-flex">
+    <p class="admin_customer_title">郵便番号</p>
+    <%= @customer.postal_code %>
+  </div>
+  <div class="admin_customer d-flex">
+    <p class="admin_customer_title">住所</p>
+    <%= @customer.address %>
+  </div>
+  <div class="admin_customer d-flex">
+    <p class="admin_customer_title">電話番号</p>
+    <%= @customer.telephone_number %>
+  </div>
+  <div class="admin_customer d-flex">
+    <p class="admin_customer_title">メールアドレス</p>
+    <%= @customer.email %>
+  </div>
+  <div class="admin_customer d-flex">
+    <p class="admin_customer_title">会員ステータス</p>
+    <% if @customer.is_deleted? %>
+      <div class="text-secondary">退会</div>
+    <% else %>
+      <div class="text-success font-weight-bold">有効</div>
+    <% end %>
+  </div>
+  <div class="detail_btn mb-5">
+    <%= link_to "編集する", edit_admin_customer_path(@customer.id), class:"btn btn-success mr-5" %>
+    <%= link_to "注文履歴一覧を見る", admin_path, class:"btn btn-primary admin_index" %>
+  </div>
+</div>

@@ -1,2 +1,49 @@
-<h1>Admin::Customers#edit</h1>
-<p>Find me in app/views/admin/customers/edit.html.erb</p>
+<div class="container">
+  <div class="title">
+    <h3>
+      <%= @customer.last_name %>
+      <%= @customer.first_name %>
+      さんの会員情報編集
+    </h3>
+  </div>
+  <%= form_with model: @customer,url: admin_customer_path do |f| %>
+  <div class="admin_customer d-flex">
+    <p class="admin_customer_title">会員ID</p>
+    <%= @customer.id %>
+  </div>  
+  <div class="admin_customer d-flex">
+    <p class="admin_customer_title">氏名</p>
+    <%= f.text_field :last_name, class:"names mr-3", placeholder: "令和" %>
+    <%= f.text_field :first_name, class:"names", placeholder: "道子" %>
+  </div>
+  <div class="admin_customer d-flex">
+    <p class="admin_customer_title">フリガナ</p>
+    <%= f.text_field :last_name_kana, class:"names mr-3", placeholder: "レイワ" %>
+    <%= f.text_field :first_name_kana, class:"names", placeholder: "ミチコ" %>
+  </div>
+  <div class="admin_customer d-flex">
+    <p class="admin_customer_title">郵便番号</p>
+    <%= f.text_field :postal_code, placeholder: "000000", class:"names" %>
+  </div>
+  <div class="admin_customer d-flex">
+    <p class="admin_customer_title">住所</p>
+    <%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0", class:"admin_address" %>
+  </div>
+  <div class="admin_customer d-flex">
+    <p class="admin_customer_title">電話番号</p>
+    <%= f.text_field :telephone_number, placeholder: "0000000000", class:"names" %>
+  </div>
+  <div class="admin_customer d-flex">
+    <p class="admin_customer_title">メールアドレス</p>
+    <%= f.email_field :email, autofocus: true, placeholder: "sample@example.com", autocomplete: "email", class:"names" %>
+  </div>
+  <div class="admin_customer d-flex">
+    <p class="admin_customer_title">会員ステータス</p>
+    <%= f.radio_button :is_deleted, "false" %>
+    <div class="center mx-0 mr-2">有効</div>
+    <%= f.radio_button :is_deleted, "true" %>
+    <div class="center mx-0">退会</div>
+  </div>
+  <%= f.submit '変更を保存', class:"btn btn-success mb-3 mt-3 change_btn" %>
+  <% end %>
+</div>

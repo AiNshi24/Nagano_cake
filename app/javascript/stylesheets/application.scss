@@ -4,22 +4,22 @@
 
 .forms{
       position:relative;
-      max-width:300px;	
+      max-width:300px;
       margin-bottom:20px;
 }
 .sbox{
     height:50px;
-    padding:0 10px; 
-    position:absolute; 
+    padding:0 10px;
+    position:absolute;
     left:0;
-    top:0; 
+    top:0;
     border-radius:2px;
     outline:0;
-    background:#eee;	
+    background:#eee;
 }
 .sbtn{
     height:50px;
-    position:absolute; 
+    position:absolute;
     // left:255px;/*アイコン左右の位置調整*/
     top:0;
     background:none;
@@ -294,4 +294,20 @@ h5{
 }
 .detail_price_th{
   background-color: #eeeeee;
+}
+.admin_customer_title{
+  width: 200px;
+}
+.detail_btn{
+  margin-left: 200px;
+}
+.admin_index{
+  width: 200px;
+}
+.admin_address{
+  height: 30px;
+  width: 460px;
+}
+.change_btn{
+  margin-left: 200px;
 }
