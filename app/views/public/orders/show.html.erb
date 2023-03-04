@@ -41,7 +41,8 @@
           <tr>
             <th class="detail_price_th">商品合計</th>
             <td>
-              <%= (@order.total_payment-@shipping_cost).to_s(:delimited) %>
+              <%#= (@order.total_payment-@shipping_cost).to_s(:delimited) %>
+              <%= @order.order_item_price.to_s(:delimited) %>
             </td>
           </tr>
           <tr>

@@ -23,7 +23,7 @@
            <%= order.name %>
          </td>
          <td>
-           <%#= order.amount %>
+           <%= order.order_item_count %>
          </td>
          <td>
            <%= Order.statuses_i18n[order.status] %>

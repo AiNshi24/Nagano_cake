@@ -30,8 +30,10 @@
     <%= f.submit "更新", class:"btn btn-success ml-3 status_update" %>
     <% end %>
   </div>
+  
   <div class="row">
     <div class="col-9">
+      
       <table class="table mt-4">
         <thead>
           <tr>
@@ -43,7 +45,7 @@
           </tr>
         </thead>
         <tbody>
-          <%= form_with model: @order_detail,url: admin_order_detail_path do |f| %>
+          
           <% @order.order_details.each do |order_detail| %>
           <tr>
             <td>
@@ -51,28 +53,32 @@
             </td>
             <td>
               <%= order_detail.price %>
-              <% @total += order_detail.price %>
             </td>
             <td>
               <%= order_detail.amount %>
+              <%# @total += order_detail.price*order_detail.amount %>
             </td>
             <td>
               <%= (order_detail.price)*(order_detail.amount) %>
             </td>
+            <%= form_with model: order_detail,url: admin_order_detail_path(order_detail.id) do |f| %>
             <td class="d-flex">
               <%= f.select :making_status, OrderDetail.making_statuses_i18n.invert, {}, class:'form-control' %>
               <%= f.submit "更新", class:"btn btn-success ml-3 status_update" %>
             </td>
+            <% end %>
           </tr>
           <% end %>
           
         </tbody>
       </table>
+      
     </div>
     <div class="col-3 admin_prices mt-auto">
       <div class="d-flex">
         <p class="admin_order_title font-weight-bold">商品合計</p>
-        <%= @total.to_s(:delimited) %>円
+        <%#= @total.to_s(:delimited) %>
+        <%= @order.order_item_price.to_s(:delimited) %>円
       </div>
       <div class="d-flex">
         <p class="admin_order_title font-weight-bold">送料</p>
@@ -80,9 +86,9 @@
       </div>
       <div class="d-flex">
         <p class="admin_order_title font-weight-bold">請求金額合計</p>
-        <p class="font-weight-bold"><%= (@shipping_cost + @total).to_s(:delimited) %>円</p>
+        <p class="font-weight-bold"><%= (@shipping_cost + @order.order_item_price).to_s(:delimited) %>円</p>
       </div>
     </div>
   </div>
-  <% end %>
+  
 </div>
