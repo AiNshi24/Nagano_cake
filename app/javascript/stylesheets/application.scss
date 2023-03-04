@@ -115,7 +115,7 @@ tr{
   height:40px;
 }
 .item-link > a{
-  text-decoration: underline;
+  // text-decoration: underline;
 }
 .title > a{
   float: right;
@@ -125,7 +125,7 @@ tr{
   width: 10px;
 }
 .more > a{
-  text-decoration: underline;
+  // text-decoration: underline;
   float: right;
 }
 .new-itemes{
@@ -310,4 +310,32 @@ h5{
 }
 .change_btn{
   margin-left: 200px;
+}
+.admin_order_title{
+  width: 150px;
+}
+.status_update{
+  width: 60px;
+  height: 35px;
+}
+.form-control{
+  width: 120px;
+}
+// .admin_prices{
+//   margin-top: 100px;
+// }
+.address_new{
+  width: 200px;
+}
+.address_name{
+  height: 30px;
+}
+.address_new_btn{
+  margin-left: 300px;
+}
+// .address_address{
+//   width: 350px;
+// }
+.address_nill{
+  width: 300px;
 }

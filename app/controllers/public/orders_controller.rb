@@ -22,9 +22,6 @@ class Public::OrdersController < ApplicationController
     end
   end
 
-  def complete
-  end
-
   def create
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
@@ -57,7 +54,7 @@ class Public::OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:customer_id, :postal_code, :address, :name, :shipping_cost, :total_payment, :status, :payment_method, :item_id, :price, :amount, :making_atatus)
+    params.require(:order).permit(:customer_id, :postal_code, :address, :name, :shipping_cost, :total_payment, :status, :payment_method, :item_id, :price, :amount, :making_status)
   end
 
 end
